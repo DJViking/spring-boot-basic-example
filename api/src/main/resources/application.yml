@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 2000
+      min-spare: 20
+
+spring:
+  application:
+    name: example-basic-app
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false;DATABASE_TO_UPPER=false
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  security:
+    user:
+      name: username # Recommend using Environment variables for sensitive data ${USERNAME}
+      password: password # Recommend using Environment variables for sensitive data ${PASSWORD}

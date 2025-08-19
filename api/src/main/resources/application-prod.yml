@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customers
+    username: myuser
+    password: secret
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000  # 30 seconds
+      maximum-pool-size: 200
+      minimum-idle: 2
+      max-lifetime: 300000  # 5 minutes
+      idle-timeout: 300000  # 5 minutes
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
